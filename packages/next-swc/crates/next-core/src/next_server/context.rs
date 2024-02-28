@@ -360,7 +360,7 @@ pub async fn get_server_module_options_context(
         .cell()
     });
 
-    let use_swc_css_for_turbopack = *next_config.use_swc_css_for_turbopack().await?;
+    let use_swc_css = *next_config.use_swc_css_for_turbopack().await?;
     let versions = RuntimeVersions(Default::default()).cell();
 
     // ModuleOptionsContext related options
@@ -439,7 +439,7 @@ pub async fn get_server_module_options_context(
             let module_options_context = ModuleOptionsContext {
                 execution_context: Some(execution_context),
                 esm_url_rewrite_behavior: url_rewrite_behavior,
-                use_swc_css_for_turbopack,
+                use_swc_css,
                 tree_shaking_mode: Some(TreeShakingMode::ReexportsOnly),
                 import_externals: *next_config.import_externals().await?,
                 ..Default::default()
@@ -501,7 +501,7 @@ pub async fn get_server_module_options_context(
 
             let module_options_context = ModuleOptionsContext {
                 execution_context: Some(execution_context),
-                use_swc_css_for_turbopack,
+                use_swc_css,
                 tree_shaking_mode: Some(TreeShakingMode::ReexportsOnly),
                 import_externals: *next_config.import_externals().await?,
                 ..Default::default()
@@ -577,7 +577,7 @@ pub async fn get_server_module_options_context(
 
             let module_options_context = ModuleOptionsContext {
                 execution_context: Some(execution_context),
-                use_swc_css_for_turbopack,
+                use_swc_css,
                 tree_shaking_mode: Some(TreeShakingMode::ReexportsOnly),
                 import_externals: *next_config.import_externals().await?,
                 ..Default::default()
